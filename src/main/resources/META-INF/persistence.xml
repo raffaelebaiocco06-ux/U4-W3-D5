@@ -4,6 +4,12 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
     <persistence-unit name="u4-w3-d5">
       <!--classi-->
+        <class>raffaele.entities.Catalogo</class>
+        <class>raffaele.entities.Prestito</class>
+        <class>raffaele.entities.Utente</class>
+        <class>raffaele.entities.Libro</class>
+        <class>raffaele.entities.Rivista</class>
+
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/u4-w3-d5"/>
 

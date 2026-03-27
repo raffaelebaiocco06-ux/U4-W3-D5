@@ -24,8 +24,12 @@ public class PrestitoDao {
         System.out.println("Prestito salvato con successo!");
     }
     public List<Catalogo> cercaprestitiPerTessera(String numeroTessera){
-        TypedQuery<Catalogo> query = em.createQuery("SELECT p.elementoprestato FROM PRESTITO p", Catalogo.class);
+        TypedQuery<Catalogo> query = em.createQuery("SELECT p.elementoprestato FROM Prestito p WHERE p.utente.ntessera= :ntessera AND p.datarestituzioneeffettiva IS NULL", Catalogo.class);
         query.setParameter("ntessera", numeroTessera);
+        return query.getResultList();
+    }
+    public List<Prestito> cercaprestitiScaduti(){
+        TypedQuery<Prestito> query=em.createQuery("SELECT p FROM Prestito p WHERE p.datarestituzioneprevista < CURRENT_DATE AND p.datarestituzioneeffettiva IS NULL  ", Prestito.class);
         return query.getResultList();
     }
 
